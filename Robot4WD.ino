@@ -6,18 +6,22 @@ Ing. César Augusto Alvarez
 
 */
 
+
 #define IN1Motor 2
 #define IN2Motor 4
 #define IN3Motor 6
 #define IN4Motor 7
 #define ENAMotor 3//Enable del motor Derecho
 #define ENBMotor 5//Enable del motor Izquierdo
+#define TRIGGER 11
+#define ECHO 10
 
 //Funciones
 
 void avanzar(void);
 void retroceder(void);
 void detener(void);
+int ostaculo(void);
 
 
 //Configuración del robot
@@ -30,17 +34,22 @@ void setup() {
   pinMode(IN4Motor, OUTPUT);
   pinMode(ENAMotor, OUTPUT);
   pinMode(ENBMotor, OUTPUT);
+  pinMode(TRIGGER, OUTPUT); // Habilita el uso del ultrasonido
+  pinMode(ECHO, INPUT); // 
+  Serial.begin(9600);
 }
 
 //Ordenes para el robot
 void loop() {
   
  avanzar();
- delay(5000);
+ delay(200);
  retroceder();
- delay(5000);
+ delay(200);
  detener();
- delay(5000);
+ delay(200);
+ Serial.println(ostaculo());
+ delay(200);     
 }
 
 
@@ -75,4 +84,21 @@ void detener(void)
   digitalWrite(ENAMotor,LOW);
   digitalWrite(IN3Motor, LOW);//Motor izquierdo
   digitalWrite(IN4Motor, LOW);
+}
+
+int ostaculo(void)
+{
+  long duration;
+  int distance;
+  digitalWrite(TRIGGER, LOW);
+  delayMicroseconds(2);
+  // Pin de disparo en uno durante 10 us
+  digitalWrite(TRIGGER, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIGGER, LOW);
+  // Mide tiempo que tarda en ponerse en uno el eco
+  duration = pulseIn(ECHO, HIGH);
+  // Se calcula la distancia en cm
+  distance= duration*0.034/2;  
+  return distance;
 }
