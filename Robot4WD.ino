@@ -13,6 +13,13 @@ Ing. César Augusto Alvarez
 #define ENAMotor 3//Enable del motor Derecho
 #define ENBMotor 5//Enable del motor Izquierdo
 
+//Funciones
+
+void avanzar(void);
+void retroceder(void);
+void detener(void);
+
+
 //Configuración del robot
 void setup() {
   // initialize digital pin LED_BUILTIN as an output.
@@ -27,7 +34,18 @@ void setup() {
 
 //Ordenes para el robot
 void loop() {
-  //Avanzar
+  
+ avanzar();
+ delay(5000);
+ retroceder();
+ delay(5000);
+ detener();
+ delay(5000);
+}
+
+
+void avanzar(void)
+{
   digitalWrite(ENAMotor,HIGH);
   digitalWrite(IN1Motor, HIGH);//Motor derecho
   digitalWrite(IN2Motor, LOW);
@@ -35,9 +53,10 @@ void loop() {
   digitalWrite(ENBMotor,HIGH);
   digitalWrite(IN3Motor, HIGH);//Motor Izquierdo
   digitalWrite(IN4Motor, LOW);
-  delay(5000);
-           
-  //Retroceder    
+}
+
+void retroceder(void)
+{
   digitalWrite(ENAMotor,HIGH);   
   digitalWrite(IN1Motor, LOW);//Motor derecho
   digitalWrite(IN2Motor, HIGH);
@@ -45,9 +64,10 @@ void loop() {
   digitalWrite(ENBMotor,HIGH);
   digitalWrite(IN3Motor, LOW);//Motor izquierdo
   digitalWrite(IN4Motor, HIGH);
-  delay(5000);                
+}
 
-  //Detener       
+void detener(void)
+{
   digitalWrite(ENAMotor,LOW);
   digitalWrite(IN1Motor, LOW);//Motor derecho
   digitalWrite(IN2Motor, LOW);
@@ -55,5 +75,4 @@ void loop() {
   digitalWrite(ENAMotor,LOW);
   digitalWrite(IN3Motor, LOW);//Motor izquierdo
   digitalWrite(IN4Motor, LOW);
-  delay(5000);                
 }
