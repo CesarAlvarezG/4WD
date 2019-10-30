@@ -6,12 +6,6 @@
   */
 
 
-
-
-//Archivo IotViewOled.h
-
-//Declaración del objeto
-
 #ifndef __MOVROBOT_H__
 #define __MOVROBOT_H__
 
