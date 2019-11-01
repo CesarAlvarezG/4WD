@@ -20,4 +20,6 @@ void avanzar(void);
 void retroceder(void);
 void detener(void);
 void setupMotor(void);
+void girarDerecha(void);
+void girarIzquierda(void);
 #endif

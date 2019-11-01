@@ -29,11 +29,17 @@ void setup() {
 void loop() {
   
  avanzar();
- delay(200);
+ delay(2000);
  retroceder();
- delay(200);
+ delay(2000);
  detener();
- delay(200);
+ delay(2000);
+ girarDerecha();
+ delay(2000);
+ girarIzquierda();
+ delay(2000);
+ detener();
+ delay(2000);
  Serial.println(ostaculo());
  delay(200);     
 }

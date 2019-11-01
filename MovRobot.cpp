@@ -44,3 +44,25 @@ void setupMotor(void)
   pinMode(ENAMotor, OUTPUT);
   pinMode(ENBMotor, OUTPUT);
 }
+
+void girarDerecha(void)
+{
+  digitalWrite(ENAMotor,LOW);
+  digitalWrite(IN1Motor, HIGH);//Motor derecho
+  digitalWrite(IN2Motor, LOW);
+  
+  digitalWrite(ENBMotor,HIGH);
+  digitalWrite(IN3Motor, HIGH);//Motor Izquierdo
+  digitalWrite(IN4Motor, LOW);  
+}
+
+void girarIzquierda(void)
+{
+  digitalWrite(ENAMotor,HIGH);
+  digitalWrite(IN1Motor, HIGH);//Motor derecho
+  digitalWrite(IN2Motor, LOW);
+  
+  digitalWrite(ENBMotor,LOW);
+  digitalWrite(IN3Motor, HIGH);//Motor Izquierdo
+  digitalWrite(IN4Motor, LOW);  
+}
