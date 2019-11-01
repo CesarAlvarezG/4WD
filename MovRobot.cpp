@@ -1,13 +1,18 @@
 
 #include"MovRobot.h"
 #include <arduino.h>
+
+int calibradoDerecho=160;
+int calibradoIzquierdo=255;
+
 void avanzar(void)
 {
-  digitalWrite(ENAMotor,HIGH);
+  
+  analogWrite(ENAMotor,calibradoDerecho);
   digitalWrite(IN1Motor, HIGH);//Motor derecho
   digitalWrite(IN2Motor, LOW);
   
-  digitalWrite(ENBMotor,HIGH);
+  analogWrite(ENBMotor,calibradoIzquierdo);
   digitalWrite(IN3Motor, HIGH);//Motor Izquierdo
   digitalWrite(IN4Motor, LOW);
 }

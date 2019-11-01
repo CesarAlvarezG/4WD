@@ -34,39 +34,39 @@ void loop() {
  int d;//Distancia del ostaculo
  //Lógica de estado
  d=ostaculo();
- Serial.print(d);
+Serial.print(d);
 switch(estadoActual)
-{
-  case 0:
-          if(d>=30)
-            {
-             estadoActual=1; 
-            }
-          break;
-  case 1:
-          if(d<20)
-            {
-             estadoActual=0; 
-            }
-          break;
-}
+      {
+        case 0:
+                if(d>=30)
+                  {
+                   estadoActual=1; 
+                  }
+                break;
+        case 1:
+                if(d<20)
+                  {
+                   estadoActual=0; 
+                  }
+                break;
+      }
 Serial.print("\t");
 Serial.println(estadoActual);
  //Lógica de salida
  switch(estadoActual)
-{
-  case 0:
-          detener();
-          break;
-  case 1:
-          avanzar();
-          break;
-  case 3: 
-          girarDerecha();
-          break;
-  case 4:
-          girarIzquierda();        
-          break;
-}
-// delay(200);
+        {
+          case 0:
+                  detener();
+                  break;
+          case 1:
+                  avanzar();
+                  break;
+          case 3: 
+                  girarDerecha();
+                  break;
+          case 4:
+                  girarIzquierda();        
+                  break;
+        }
+ delay(20);
 }

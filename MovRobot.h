@@ -16,6 +16,8 @@
 #define ENAMotor 3//Enable del motor Derecho
 #define ENBMotor 5//Enable del motor Izquierdo
 
+
+
 void avanzar(void);
 void retroceder(void);
 void detener(void);

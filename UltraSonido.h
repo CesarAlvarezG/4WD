@@ -10,6 +10,8 @@
 #ifndef __ULTRASONIDO_H__
 #define __ULTRASONIDO_H__
 
+#include "filter.h"
+
 #define TRIGGER 11
 #define ECHO 10
 
